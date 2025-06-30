@@ -41,11 +41,12 @@ export class Ratingstar implements ControlValueAccessor {
       this.value = number;
       this.onChange(number);
       this.onTouched();
+
     }
 
     writeValue(v: number): void {
       this.value = v
-    
+      
     }
 
     registerOnChange(fn: any): void {

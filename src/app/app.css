@@ -1,3 +1,10 @@
 input {
     margin: 5px;
 }
+/* Tutto ciò che non è un control editabile NON è selezionabile  */
+:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari / Chrome */
+  -moz-user-select: none;    /* Firefox        */
+  -ms-user-select: none;     /* Edge Legacy    */
+  user-select: none;         /* Standard       */
+}

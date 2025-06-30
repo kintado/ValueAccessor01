@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Ratingstar } from './components/cva/ratingstar/ratingstar';
+import { InputToggle } from './inputtoggle/inputtoggle';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, Ratingstar],
+  imports: [ReactiveFormsModule, Ratingstar, InputToggle],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -15,7 +16,8 @@ export class App {
     cognome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     anni: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
-    rating: new FormControl(0, [Validators.required])
+    rating: new FormControl(0, [Validators.required]),
+    toggle: new FormControl(false, [Validators.required])
   });
 
   setta(n : number){
@@ -25,6 +27,20 @@ export class App {
   testSetta()
   {
     this.setta(3);
+  }
+
+  save() {
+    if (this.myform.valid) {
+      alert('Elenco valori: '+
+        'Nome: ' + this.myform.get('nome')?.value + ', ' +
+        'Cognome: ' + this.myform.get('cognome')?.value + ', ' +
+        'Email: ' + this.myform.get('email')?.value + ', ' +
+        'Anni: ' + this.myform.get('anni')?.value + ', ' +
+        'Rating: ' + this.myform.get('rating')?.value);
+
+    } else {
+      console.log('Form is invalid');
+    }
   }
 
 }

@@ -4,6 +4,10 @@
   <input formControlName="email" placeholder="Email" />
   <input formControlName="anni" placeholder="Anni" type="number" />
   <inputrating formControlName="rating" placeholder="Rating" />
-  <button type="submit" [disabled]="myform.invalid">Invia</button>
+  <inputtoggle formControlName="toggle" placeholder="Attivo" />
+  <hr>
+  <button type="submit" [disabled]="myform.invalid" >Invia</button>
+  <hr>
 </form>
 <button (click)="testSetta()">SETTA</button>
+<button (click)="save()">SALVA</button>
