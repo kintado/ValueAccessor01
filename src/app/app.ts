@@ -3,10 +3,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Ratingstar } from './components/cva/ratingstar/ratingstar';
 import { InputToggle } from './inputtoggle/inputtoggle';
 import { Goldsaintpicker } from './components/cva/goldsaintpicker/goldsaintpicker';
+import { PokemonsPicker } from './components/cva/pokemonpicker/pokemonspicker';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, Ratingstar, InputToggle, Goldsaintpicker],
+  imports: [ReactiveFormsModule, Ratingstar, InputToggle, Goldsaintpicker, PokemonsPicker],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -19,7 +20,8 @@ export class App {
     anni: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
     rating: new FormControl(0, [Validators.required]),
     toggle: new FormControl(false, [Validators.required]),
-    goldsaint: new FormControl('Mu di Ariete', [Validators.required])
+    goldsaint: new FormControl('Mu di Ariete', [Validators.required]),
+    pokemon: new FormControl('Pikachu', [Validators.required])
   });
 
   setta(n : number){
@@ -40,7 +42,8 @@ export class App {
         'Anni: ' + this.myform.get('anni')?.value + ', ' +
         'Rating: ' + this.myform.get('rating')?.value +
         ', Toggle: ' + this.myform.get('toggle')?.value + ', ' +
-        'Gold Saint: ' + this.myform.get('goldsaint')?.value );
+        'Gold Saint: ' + this.myform.get('goldsaint')?.value +
+        ', Pokemon: ' + this.myform.get('pokemon')?.value);
 
 
     } else {
